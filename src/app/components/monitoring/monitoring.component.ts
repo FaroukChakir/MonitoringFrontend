@@ -30,7 +30,6 @@ export class MonitoringComponent implements OnInit {
   constructor(private authService: AuthenticationService,private route: Router) {}
 
   ngOnInit(): void {
-    // You can call any initial API requests here if needed
   }
 
   callAddServerAPI() {
@@ -42,7 +41,6 @@ export class MonitoringComponent implements OnInit {
       },
       error => {
         console.error('Add Server API Error:', error);
-        // Handle errors appropriately
       }
     );
   }
@@ -52,11 +50,9 @@ export class MonitoringComponent implements OnInit {
       response => {
         this.getServersResult = response;
         console.log('Get Servers API Response:', response);
-        // Handle the response as needed
       },
       error => {
         console.error('Get Servers API Error:', error);
-        // Handle errors appropriately
       }
     );
   }
@@ -66,11 +62,9 @@ export class MonitoringComponent implements OnInit {
       response => {
         this.removeServerResult = response;
         console.log('Remove Server API Response:', response);
-        // Handle the response as needed
       },
       error => {
         console.error('Remove Server API Error:', error);
-        // Handle errors appropriately
       }
     );
   }
@@ -84,7 +78,6 @@ export class MonitoringComponent implements OnInit {
       },
       error => {
         console.error('Test Connexion API Error:', error);
-        // Handle errors appropriately
       }
     );
   }
@@ -94,11 +87,9 @@ export class MonitoringComponent implements OnInit {
       response => {
         this.monitoringResult = response;
         console.log('Monitoring API Response:', response);
-        // Handle the response as needed
       },
       error => {
         console.error('Monitoring API Error:', error);
-        // Handle errors appropriately
       }
     );
   }
