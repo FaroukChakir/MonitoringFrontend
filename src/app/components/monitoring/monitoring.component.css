@@ -1,0 +1,35 @@
+.Container
+{
+    height: 100vh;
+}
+.TopMenu
+{
+    height: 4%;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+.Title{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    
+    
+}
+.Dashboard
+{
+    background-color: #fefefe   ;
+    height: 95%;
+}
+.TopMenu button
+{
+    margin-right: 15px;
+}
+.Disconnect{
+    display: flex;
+    
+}
+h3{
+    color: white;
+}

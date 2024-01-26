@@ -1,0 +1,142 @@
+/* Global styles */
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+* {
+  font-family: 'Montserrat' !important;
+  
+}
+
+/* Base container styles */
+.Container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ecf0f1;
+}
+
+/* Form switch section */
+.SwitchForm {
+  background-color: white;
+  height: 400px;
+  width: 600px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  border-radius: 5px;
+}
+
+.Switch {
+  display: flex;
+  justify-content: space-around;
+  border-radius: 5px;
+}
+
+.Switch button {
+  width: 100%;
+  height: 50px;
+  border: 0;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  transition: all 0.3s ease;
+  border-radius: 5px 5px 0px 0px;
+}
+
+button.active {
+  box-shadow: none !important;
+  cursor: pointer;
+  background-color: #1b1c21;
+  color: #f2f0ee;
+}
+
+.Switch button:hover{
+  cursor: pointer;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset !important;
+
+}
+
+/* Login/Register form section */
+.LoginRegister {
+  display: flex;
+  padding: 20px;
+  height: 100%;
+  justify-content: center;
+}
+
+.form-holder {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Input styles */
+.input-group {
+  display: block;
+  margin-bottom: 15px;
+  position: relative;
+  width: 80%;
+}
+
+.input {
+  border: 0;
+  outline: none;
+  box-shadow: none;
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #eee;
+  width: 100%;
+  font-size: 18px;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  &:focus {
+    border-bottom: 1px solid black;
+  }
+
+  &:focus + .label,
+  .label {
+    top: -10px !important;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+  &::-webkit-input-placeholder {
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+.label {
+  position: absolute;
+  top: 5px !important;
+  left: 15px;
+  font-size: 18px;
+  color: black;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* Submit button styles */
+.submit-btn {
+  background-color: #00C851 ;
+  color: black;
+  border: 0;
+  border-radius: 5px;
+  display: block;
+  margin: 15px auto;
+  margin-top: 8%;
+  padding: 15px 45px;
+  width: 80%;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: white;
+    background-color: #007E33;
+  }
+}
