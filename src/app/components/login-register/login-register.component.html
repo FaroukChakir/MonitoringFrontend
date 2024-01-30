@@ -1,3 +1,32 @@
+<<<<<<< HEAD
+=======
+
+<style>
+  .label {
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    font-size: 18px;
+    color: black;
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+
+  .input-group {
+    position: relative;
+    width: 80%;
+  }
+
+  .input:not(:placeholder-shown) + .label,
+  .input:focus + .label {
+    top: -10px !important;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.4);
+  }
+</style>
+
+<!-- Your Angular component template -->
+>>>>>>> 9dbff5d5beda9254184915c28c5c31a2645b7ec7
 <div class="Container">
   <div class="Popupmessage" [ngClass]="{'SuccessAlert': successMessage, 'ErrorAlert': errorMessage, 'show': successMessage || errorMessage}" [@slideUpDown]>
     <h5>{{ successMessage || errorMessage }}</h5>

@@ -31,10 +31,13 @@ export class MonitoringComponent {
   constructor(private authService: AuthenticationService, private router: Router) {}
 
   ngOnInit(): void {
+<<<<<<< HEAD
     var Tokens = new ResuqestToken();
     Tokens.Token = localStorage.getItem("JwtAccessToken") ?? '';
     Tokens.RefreshToken = localStorage.getItem("JwtRefreshToken") ?? '';
      this.refreshtoken(Tokens);
+=======
+>>>>>>> 9dbff5d5beda9254184915c28c5c31a2645b7ec7
   }
 
   refreshtoken(refreshtokenDto:ResuqestToken){
@@ -55,8 +58,11 @@ export class MonitoringComponent {
       },
       error => {
         console.error('Add Server API Error:', error);
+<<<<<<< HEAD
         
         
+=======
+>>>>>>> 9dbff5d5beda9254184915c28c5c31a2645b7ec7
       }
     );
   }
@@ -66,11 +72,9 @@ export class MonitoringComponent {
       response => {
         this.getServersResult = response;
         console.log('Get Servers API Response:', response);
-        // Handle the response as needed
       },
       error => {
         console.error('Get Servers API Error:', error);
-        // Handle errors appropriately
       }
     );
   }
@@ -80,11 +84,9 @@ export class MonitoringComponent {
       response => {
         this.removeServerResult = response;
         console.log('Remove Server API Response:', response);
-        // Handle the response as needed
       },
       error => {
         console.error('Remove Server API Error:', error);
-        // Handle errors appropriately
       }
     );
   }
@@ -98,7 +100,6 @@ export class MonitoringComponent {
       },
       error => {
         console.error('Test Connexion API Error:', error);
-        // Handle errors appropriately
       }
     );
   }
@@ -108,11 +109,17 @@ export class MonitoringComponent {
       response => {
         this.monitoringResult = response;
         console.log('Monitoring API Response:', response);
+<<<<<<< HEAD
        
       },
       error => {
         console.error('Monitoring API Error:', error);
         
+=======
+      },
+      error => {
+        console.error('Monitoring API Error:', error);
+>>>>>>> 9dbff5d5beda9254184915c28c5c31a2645b7ec7
       }
     );
   }

@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9dbff5d5beda9254184915c28c5c31a2645b7ec7
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 /* Global styles */
@@ -13,7 +17,6 @@
   background-color: #ecf0f1;
 }
 
-/* Form switch section */
 .SwitchForm {
   background-color: white;
   width: 30%; 
@@ -70,7 +73,6 @@ button.active {
   align-items: center;
 }
 
-/* Input styles */
 .input-group {
   display: block;
   margin-bottom: 15px;
@@ -121,7 +123,10 @@ button.active {
   transition: all 0.3s ease;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9dbff5d5beda9254184915c28c5c31a2645b7ec7
 .submit-btn {
   color: black;
   border: 0;
