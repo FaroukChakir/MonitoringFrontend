@@ -8,18 +8,19 @@ import { RemoveServer } from '../../models/SSH/RemoveServer';
 import {  Router } from '@angular/router';
 import { ResuqestToken } from '../../models/requestToken';
 
+
 @Component({
   selector: 'app-monitoring',
   templateUrl: './monitoring.component.html',
   styleUrls: ['./monitoring.component.css']
 })
-export class MonitoringComponent implements OnInit {
-  removeserverDto = new RemoveServer();
-  addserverDto = new AddServer();
-  getserversDto = new GetServers();
-  testconnexionDto = new TestConnexion();
-  monitoringDto = new Monitoring();
-  refreshtoken = new ResuqestToken();
+export class MonitoringComponent {
+  removeserverDto: RemoveServer = new RemoveServer();
+  addserverDto: AddServer = new AddServer();
+  getserversDto: GetServers = new GetServers();
+  testconnexionDto: TestConnexion = new TestConnexion();
+  monitoringDto: Monitoring = new Monitoring();
+  refreshtokenDto: ResuqestToken = new ResuqestToken();
 
   addServerResult: AddServer | null = null;
   removeServerResult: any | null = null;
@@ -27,22 +28,35 @@ export class MonitoringComponent implements OnInit {
   testConnexionResult: any | null = null;
   monitoringResult: Monitoring | null = null;
 
-  constructor(private authService: AuthenticationService,private route: Router) {}
+  constructor(private authService: AuthenticationService, private router: Router) {}
 
   ngOnInit(): void {
-    // You can call any initial API requests here if needed
+    var Tokens = new ResuqestToken();
+    Tokens.Token = localStorage.getItem("JwtAccessToken") ?? '';
+    Tokens.RefreshToken = localStorage.getItem("JwtRefreshToken") ?? '';
+     this.refreshtoken(Tokens);
   }
 
+  refreshtoken(refreshtokenDto:ResuqestToken){
+    this.authService.requestToken(refreshtokenDto).subscribe((jwtDto)=>{
+      localStorage.setItem('JwtAccessToken',jwtDto.accessToken);
+      localStorage.setItem('JwtRefreshToken',jwtDto.refreshToken);
+    },error=>{
+      this.router.navigate(['/Authentication']);
+      console.clear();
+    });
+  }
   callAddServerAPI() {
     this.authService.AddServer(this.addserverDto).subscribe(
       response => {
         this.addServerResult = response;
         console.log('Add Server API Response:', response);
-        // Handle the response as needed
+       
       },
       error => {
         console.error('Add Server API Error:', error);
-        // Handle errors appropriately
+        
+        
       }
     );
   }
@@ -94,13 +108,12 @@ export class MonitoringComponent implements OnInit {
       response => {
         this.monitoringResult = response;
         console.log('Monitoring API Response:', response);
-        // Handle the response as needed
+       
       },
       error => {
         console.error('Monitoring API Error:', error);
-        // Handle errors appropriately
+        
       }
     );
   }
 }
-

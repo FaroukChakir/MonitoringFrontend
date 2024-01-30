@@ -4,6 +4,7 @@ import { LoginRegisterComponent } from './components/login-register/login-regist
 import { AuthGuardService } from './Guard/AuthGuardService';
 import { MonitoringComponent } from './components/monitoring/monitoring.component';
 
+
 const routes: Routes = [
   { path: '', component: LoginRegisterComponent, canActivate: [AuthGuardService] },
   { path: 'Authentication', component: LoginRegisterComponent },

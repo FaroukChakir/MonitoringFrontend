@@ -4,6 +4,7 @@ import { CanActivate, Router } from '@angular/router';
 import { AuthenticationService } from '../models/services/authentication.service';
 import { jwtAuth } from '../models/jwtauth';
 import { ResuqestToken } from '../models/requestToken';
+import { Observable, of , map , catchError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,34 +12,35 @@ import { ResuqestToken } from '../models/requestToken';
 export class AuthGuardService implements CanActivate {
   constructor(private router: Router, private authService: AuthenticationService) {}
 
-  canActivate(): boolean {
+  canActivate(): Observable<boolean> {
     const accessToken = localStorage.getItem('accesstoken');
     const refreshToken = localStorage.getItem('refreshToken');
 
     if (accessToken && refreshToken) {
-      this.refreshToken(accessToken, refreshToken);
-      this.router.navigate(["/Monitoring"]);
-      return true;
+      return this.refreshToken(accessToken, refreshToken);
     } else {
       this.router.navigate(['/Authentication']);
-      return false;
+      return of(false);
     }
   }
 
-  refreshToken(accessToken: string, refreshToken: string) {
+  refreshToken(accessToken: string, refreshToken: string): Observable<boolean> {
     const refreshDto = new ResuqestToken();
-    refreshDto.token = accessToken;
-    refreshDto.refreshToken = refreshToken;
+    refreshDto.Token = accessToken;
+    refreshDto.RefreshToken = refreshToken;
 
-    this.authService.requestToken(refreshDto).subscribe(
-      (jwtDto: jwtAuth) => {
+    return this.authService.requestToken(refreshDto).pipe(
+      map((jwtDto: jwtAuth) => {
         localStorage.setItem('accesstoken', jwtDto.accessToken);
         localStorage.setItem('refreshToken', jwtDto.refreshToken);
-      },
-      (error: any) => {
+        this.router.navigate(['/Monitoring']);
+        return true;
+      }),
+      catchError((error: any) => {
         console.error('Token refresh failed:', error);
         this.router.navigate(['/Authentication']);
-      }
+        return of(false);
+      })
     );
   }
 }

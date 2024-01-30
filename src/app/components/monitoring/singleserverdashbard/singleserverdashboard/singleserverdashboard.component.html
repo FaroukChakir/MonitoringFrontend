@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="Menu">
+    <div class="Diagnostics">
+      <div class="ButtonsStyling" (click)="changeTitle('CPU Monitoring')" [class.active]="activeButton === 'CPU Monitoring'">
+        <div class="buttnCpu"></div>
+        <div class="description">
+          CPU
+        </div>
+      </div>
+      
+      <div class="ButtonsStyling" (click)="changeTitle('GPU Monitoring')" [class.active]="activeButton === 'GPU Monitoring'">
+        <div class="buttnGpu"></div>
+        <div class="description">
+          GPU
+        </div>
+      </div>
+      
+      <div class="ButtonsStyling" (click)="changeTitle('Network Monitoring')" [class.active]="activeButton === 'Network Monitoring'">
+        <div class="buttnNetwork"></div>
+        <div class="description">
+          Network
+        </div>
+      </div>
+      <div class="ButtonsStyling" (click)="changeTitle('Disk Monitoring')" [class.active]="activeButton === 'Disk Monitoring'">
+        <div class="buttnDisk"></div>
+        <div class="description">
+          Disk
+        </div>
+      </div>
+
+      <div class="ButtonsStyling servermanagement" (click)="changeTitle('Servers Management')" [class.active]="activeButton === 'Servers Management'">
+        <div class="buttnSrvrManagement"></div>
+        <div class="description">
+          Servers <br>
+          Management
+        </div>
+      </div>
+
+    </div>
+    <div class="servers">
+
+      <mat-form-field>
+        <mat-label>Current Server</mat-label>
+        <mat-select  name="food">
+          @for (servers of servers; track servers) {
+            <mat-option [value]="servers.host_IP">{{servers.host_IP}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      
+    </div>
+  </div>
+  <div class="dashboardContainer">
+    <div class="title">
+      {{ title }}
+    </div>
+    <div class="Dashboard">
+      <div *ngIf="isLoading" class="spinner-overlay">
+        <mat-spinner color="primary"></mat-spinner>
+      </div>
+      <div class="dashboard-content">
+        <app-cpumonitor></app-cpumonitor>
+      </div>
+    </div>
+  </div>
+</div>

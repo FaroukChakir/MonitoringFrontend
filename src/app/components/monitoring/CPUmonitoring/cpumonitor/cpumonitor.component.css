@@ -1,0 +1,22 @@
+.Container{
+    height: 100%;
+}
+.Tickets{
+    height: 15%;
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+    
+}
+.FirstTicket, .ScndTicket, .ThirdTicket
+{
+    height: 100px;
+    width: 20%;
+    margin-top: 5px;
+    background-color: aliceblue;
+}
+.Charts{
+    background-color: red;
+    height: 80%;
+    padding: 2px;
+}

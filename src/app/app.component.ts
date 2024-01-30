@@ -28,11 +28,11 @@ export class AppComponent {
       localStorage.setItem('JwtRefreshToken',jwtDto.refreshToken);
     });
   }
-  refreshtoken(refreshtokenDto:ResuqestToken){
-    this.authservice.requestToken(refreshtokenDto).subscribe((jwtDto)=>{
-      localStorage.setItem('JwtAccessToken',jwtDto.accessToken);
-      localStorage.setItem('JwtRefreshToken',jwtDto.refreshToken);
-    });
-  }
+  // refreshtoken(refreshtokenDto:ResuqestToken){
+  //   this.authservice.requestToken(refreshtokenDto).subscribe((jwtDto)=>{
+  //     localStorage.setItem('JwtAccessToken',jwtDto.accessToken);
+  //     localStorage.setItem('JwtRefreshToken',jwtDto.refreshToken);
+  //   });
+  // }
 
 }

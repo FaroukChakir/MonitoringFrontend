@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Login } from '../login';
 import { Register } from '../register';
 import { Observable } from 'rxjs';
@@ -22,11 +22,11 @@ export class AuthenticationService {
   refreshTokenUrl="AuthManagement/refresh-token"
   
   /// SSH Management 
-  addserverUrl = "/SshManagement/Addserver"
-  removeserverUrl = "/SshManagement/RemoveServer"
-  getserversUrl = "/SshManagement/GetServers"
-  monitoringUrl = "/SshManagement/Monitoring"
-  testconnexinUrl = "/SshManagement/TestConnexion"
+  addserverUrl = "SshManagement/Addserver"
+  removeserverUrl = "SshManagement/RemoveServer"
+  getserversUrl = "SshManagement/GetServers"
+  monitoringUrl = "SshManagement/Monitoring"
+  testconnexinUrl = "SshManagement/TestConnexion"
 
 
   
@@ -51,23 +51,36 @@ export class AuthenticationService {
     }
 
     /// SSH Management 
-    public AddServer(server: AddServer): Observable<AddServer> {
-      return this.http.post<AddServer>(`${environment.apiUrl}/${this.addserverUrl}`, server);
+    
+    private addTokenHeader(): HttpHeaders {
+      const accessToken = localStorage.getItem('JwtAccessToken') ?? '';
+      return new HttpHeaders({
+        'Authorization': `Bearer ${accessToken}`,
+      });
     }
   
-    public GetServers(): Observable<any> {
-      return this.http.get<any>(`${environment.apiUrl}/${this.getserversUrl}`);
+    public AddServer(server: AddServer): Observable<AddServer> {
+      const headers = this.addTokenHeader();
+      return this.http.post<AddServer>(`${environment.apiUrl}/${this.addserverUrl}`, server, { headers });
+    }
+  
+    public GetServers(): Observable<GetServers> {
+      const headers = this.addTokenHeader();
+      return this.http.get<GetServers>(`${environment.apiUrl}/${this.getserversUrl}`, { headers });
     }
   
     public RemoveServer(server: RemoveServer): Observable<any> {
-      return this.http.post<any>(`${environment.apiUrl}/${this.removeserverUrl}`, server);
+      const headers = this.addTokenHeader();
+      return this.http.post<any>(`${environment.apiUrl}/${this.removeserverUrl}`, server, { headers });
     }
   
     public TestConnexion(server: TestConnexion): Observable<any> {
-      return this.http.post<any>(`${environment.apiUrl}/${this.testconnexinUrl}`, server);
+      const headers = this.addTokenHeader();
+      return this.http.post<any>(`${environment.apiUrl}/${this.testconnexinUrl}`, server, { headers });
     }
   
     public Monitoring(monitoring: Monitoring): Observable<Monitoring> {
-      return this.http.post<Monitoring>(`${environment.apiUrl}/${this.monitoringUrl}`, monitoring);
+      const headers = this.addTokenHeader();
+      return this.http.post<Monitoring>(`${environment.apiUrl}/${this.monitoringUrl}`, monitoring, { headers });
     }
 }

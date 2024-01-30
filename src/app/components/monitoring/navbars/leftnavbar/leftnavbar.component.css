@@ -1,0 +1,188 @@
+.LeftMenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100vh;
+  background-color: #ecf0f1;
+  padding: 0px 5px 0px 5px;
+  
+}
+
+.Title {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.Title li {
+  list-style-type: none;
+  background-image: url("../../../images/cardiogram.png");
+  background-size: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 45px;
+  width: 45px;
+  
+}
+
+.SingleDiagnosticGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  transition: all 0.3s ease;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.SingleDiagnosticGroup button {
+  height: 100%;
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.SingleDiagnosticGroup:hover {
+  background-color: #34495e;
+  cursor: pointer;
+}
+.SingleDiagnosticGroup:hover .description{
+  cursor: pointer;
+}
+
+button:hover {
+  cursor: pointer;
+}
+.SingleDiagnostic {
+  background-image: url("../../../images/monitoring.png");
+  background-size: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.SingleDiagnosticGroup:hover .SingleDiagnostic, .SingleDiagnosticGroup:hover.SingleDiagnosticGroup .description{
+  background-image: url("../../../images/Monitoring-inverted.png");
+  color: white;
+
+}
+
+
+
+.ComparingDiagnosticgroup {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  transition: all 0.3s ease;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.ComparingDiagnosticgroup button {
+  height: 100%;
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.ComparingDiagnosticgroup:hover {
+  background-color: #34495e;
+  cursor: pointer;
+}
+.ComparingDiagnosticgroup:hover .description{
+  cursor: pointer;
+  color: white;
+}
+
+.ComparingDiagnostic {
+  background-image: url("../../../images/Comparing.png");
+  background-size: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.ComparingDiagnosticgroup:hover .ComparingDiagnostic, .ComparingDiagnosticgroup:hover .ComparingDiagnostic .description{
+  background-image: url("../../../images/Comparing-inverted.png");
+  color: white;
+
+}
+
+
+.BottomButton {
+  margin-top: auto;
+  height: 40px;
+  background-color: transparent;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.BottomButton:hover {
+  background-color: #dc3546 !important;
+  cursor: pointer;
+}
+.BottomButton button {
+  background-image: url("../../../images/leave.png");
+  background-size: 25px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+
+.description {
+  color: black;
+  font-size: 8px;
+  font-weight: bolder;
+}
+
+.SingleDiagnosticGroup:hover,
+.SingleDiagnosticGroup.active {
+  background-color: #34495e;
+  cursor: pointer;
+}
+
+.SingleDiagnosticGroup:hover .description,
+.SingleDiagnosticGroup.active .description {
+  cursor: pointer;
+  color: white;
+}
+
+.ComparingDiagnosticgroup:hover,
+.ComparingDiagnosticgroup.active {
+  background-color: #34495e;
+  cursor: pointer;
+}
+
+.ComparingDiagnosticgroup:hover .description,
+.ComparingDiagnosticgroup.active .description {
+  cursor: pointer;
+  color: white;
+}
+.SingleDiagnosticGroup.active .SingleDiagnostic{
+  background-image: url("../../../images/Monitoring-inverted.png") ;
+}
+
+.ComparingDiagnosticgroup.active .ComparingDiagnostic{
+  background-image: url("../../../images/Comparing-inverted.png") ;
+}

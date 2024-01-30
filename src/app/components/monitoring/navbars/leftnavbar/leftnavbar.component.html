@@ -1,0 +1,26 @@
+<!-- leftnavbar.component.html -->
+<div class="LeftMenu">
+  <div class="Title">
+    <li></li>
+  </div>
+  <div class="SingleDiagnosticGroup" [class.active]="isGroupActive('singleDiagnosticGroup')" (click)="setActiveGroup('singleDiagnosticGroup')">
+    <button class="SingleDiagnostic"></button>
+    <div class="description">
+      Monitoring
+    </div>
+  </div>
+  <div class="ComparingDiagnosticgroup" [class.active]="isGroupActive('comparingDiagnosticGroup')" (click)="setActiveGroup('comparingDiagnosticGroup')">
+
+    <button class="ComparingDiagnostic"></button>
+    <div class="description">
+      Compare
+    </div>
+    
+  </div>
+  <div class="BottomButton">
+    <button (click)="disconnect()"></button>
+    <div class="description">
+      Leave
+    </div>
+  </div>
+</div>
